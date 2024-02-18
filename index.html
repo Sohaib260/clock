@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="clock">
+    <div  id="box">
+     <span >
+        00:00:00
+     </span>
+    </div>
+  </div>
+</body>
+<script>
+   setInterval(digitalWatch,1000)
+  function digitalWatch(){
+    let time=new Date();
+    let hrs=time.getHours();
+    let min=time.getMinutes();
+    let sec =time.getSeconds();
+    am_pm="Pm";
+
+    
+
+    if (hrs >= 12) {
+                if (hrs > 12)
+                    hrs -= 12;
+                am_pm = "PM";
+            } else if (hrs == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+         
+        hrs= hrs < 10 ? "0" + hrs :hrs ;
+
+        min =min < 10 ? "0" + min: min;
+
+        sec = sec < 10 ? "0" + sec : sec;
+
+      let currentTime= hrs +  ":" + min + ":" + sec + am_pm ;
+
+      document.getElementById("clock").innerHTML=(currentTime);
+  }
+
+  digitalWatch()
+ </script>
+ </html> 
